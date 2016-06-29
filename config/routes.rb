@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  # get 'resume/index'
+  get 'all', to: 'resume#index'
+  get 'display/:id' , to: 'resume#display' , as: 'display'
   #
   get 'resume' , to: 'resume#show'
   #

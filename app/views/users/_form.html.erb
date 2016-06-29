@@ -36,8 +36,8 @@
  </div>
  <div class="form-group">
   <div class="field">
-    <%= f.label :fullname , "Fullname"%>
-    <%= f.text_field :fullname , class:"form-control", placeholder:" Email Address "%>
+    <%= f.label :fullname , "Full Name"%>
+    <%= f.text_field :fullname , class:"form-control", placeholder:" Full name to be displayed on Resummary "%>
   </div>
 </div>
  <div class="form-group">
@@ -79,6 +79,6 @@
 </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, :class => 'btn btn-warning'  %>
   </div>
 <% end %>

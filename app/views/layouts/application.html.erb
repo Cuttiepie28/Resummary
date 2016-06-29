@@ -21,6 +21,9 @@
     font-weight:bolder;
     font-size: 32px;
   }
+  h1{
+    font-size: 25px;
+  }
   </style>
 </head>
 
@@ -47,15 +50,28 @@
           <li class="hidden">
             <a href="#page-top"></a>
           </li>
+          <li class="page-scroll">
+            <%= link_to 'All Resumary', all_path %>
+          </li>
           <% if user_logged_in? %>
-
           <li class="page-scroll">
-            <%= link_to 'New Project', new_project_path %>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+              Project <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+
+
+              <li>  <%= link_to 'My Project', projects_path %></li>
+
+              <li>
+                <%= link_to 'New Project', new_project_path %>
+              </li>
+
+            </ul>
           </li>
           <li class="page-scroll">
-            <%= link_to 'My Project', projects_path %>
+            <%= link_to 'Users', users_path  %>
           </li>
-
           <li class="page-scroll">
             <%= link_to 'My Resume', resume_path %>
           </li>
@@ -76,6 +92,7 @@
                 <li class="page-scroll">   <%= link_to "Sign Up", signup_path %> </li>
                 <% end %>
                 <% end %>
+
 
               </ul>
             </div>

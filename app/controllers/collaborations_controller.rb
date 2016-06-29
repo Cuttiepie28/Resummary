@@ -28,12 +28,11 @@ class CollaborationsController < ApplicationController
   # POST /collaborations.json
   def create
     @collaboration = Collaboration.new(collaboration_params)
-      @project = Project.find(params[:project_id])
-
+    @project = Project.find(params[:project_id])
     @collaboration.project = @project
     respond_to do |format|
       if @collaboration.save
-      #  format.html { redirect_to project_collaboration_path(@project,@collaboration), notice: 'Collaboration was successfully created.' }
+        #  format.html { redirect_to project_collaboration_path(@project,@collaboration), notice: 'Collaboration was successfully created.' }
         format.html { redirect_to project_collaborations_path(@project), notice: 'Collaboration was successfully created.' }
 
         format.json { render :show, status: :created, location: @collaboration }
@@ -69,13 +68,13 @@ class CollaborationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_collaboration
-      @collaboration = Collaboration.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_collaboration
+    @collaboration = Collaboration.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def collaboration_params
-      params.require(:collaboration).permit(:user_id, :project_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def collaboration_params
+    params.require(:collaboration).permit(:user_id, :project_id)
+  end
 end

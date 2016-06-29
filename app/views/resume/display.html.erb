@@ -1,0 +1,93 @@
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <h1 class="panel-title ">
+      <center>
+        <div id="bighead" class="text-uppercase">
+          <%= @user.fullname %>
+        </div>
+      </center></h1>
+    </div>
+    <div class="panel-body">
+      <center>
+        <img class="icons" src="/mail.png"/><strong> I can be reached at:</strong>
+        <%= @user.email %>
+        <p>    <img class="icons" src="/14.png"/><strong> Phone num:</strong>
+          <%= @user.phone_num %></p>
+          <div id="well">
+
+            <div id="border" style="border-bottom:1px solid black">
+            </div>
+            <br>
+
+  <div class="center-block">
+            <div class="col-md-6">
+              <img class="icons" src="/comp.png"/>   <%= link_to "Website", @user.website  %> :
+              <%= @user.website %>
+            </div>
+
+            <div class="col-md-6">
+              <img class="icons" src="/linkedin.png"/>  <%= link_to "LinkedIn", @user.linkedin %> :
+
+              <%= @user.linkedin %>
+
+            </div>
+
+            <div class="col-md-6">
+
+              <p>
+                <img class="icons" src="/twitter.png"/>  <%= link_to "Twitter", @user.twitter %> :
+                <%= @user.twitter %>
+              </p>
+            </div>
+            <div class="col-md-6">
+              <p>
+                <img class="icons" src="/ghicon.png"/>  <%= link_to "Github", @user.github %> :
+                <%= @user.github %>
+              </p>
+            </div>
+            <p>
+              Summary:<br>
+              <%= @user.summary %>
+            </p>
+            <br>
+
+        </div>
+          <table class="table table-hover table-responsive">
+            <thead>
+              <tr>
+                <th>Title:</th>
+                <th>Project description:</th>
+                <th>Start year:</th>
+                <th>End year:</th>
+                <th> Collaborated With:   <img class="icons" src="/88.png"/> </th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @x = Collaboration.where(user_id: @user.id)%>
+
+              <% @x.each do |resume| %>
+              <tr>
+                <td><%= resume.project.title %></td>
+                <td><%= resume.project.summary %></td>
+                <td><%= resume.project.start_year %></td>
+                <td><%= resume.project.end_year %></td>
+
+                <% @collaborations = Collaboration.where(project_id: resume.project.id)%>
+                <td>  <% @collaborations.each do |collaborator| %>
+
+                  <%= link_to collaborator.user.fullname, collaborator.user %><br>
+                  <% end %>
+
+
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+        </center>
+    </div>

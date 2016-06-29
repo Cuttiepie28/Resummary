@@ -10,17 +10,21 @@
       </ul>
     </div>
   <% end %>
-
+<div style="font-size: 100px">
   <div class="field">
-    <!-- <%= f.label :user_id %>
-    <%= f.text_field :user_id %> -->
-    <%= f.label :user_id %>
-  <%= f.collection_select :user_id, User.all, :id, :username%>
+      <%= f.label :user_id , "User working on this project"  %>
+    <%= f.collection_select :user_id, User.all, :id, :username , class:"radio" %></label>
 
-  </div>
+
+<br>
+</div>
+</div>
+
+
+
 
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, :class => 'btn btn-warning'  %>
   </div>
 <% end %>

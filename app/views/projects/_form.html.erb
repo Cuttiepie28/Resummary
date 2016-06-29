@@ -16,22 +16,28 @@
     <%= f.text_field :title , class:"form-control", placeholder:" What was the title of the project you're working on?"%>
   </div>
 </div>
+ <div class="form-group">
   <div class="field">
     <%= f.label :summary, "Summary on Project:" %>
     <%= f.text_area :summary , class:"form-control", placeholder:" Please type a brief summary of less than 140 words "%>
   </div>
-
+</div>
+ <div class="form-group">
   <div class="field">
     <%= f.label :start_year ,"Start Year of Project" %>
     <%= f.text_field :start_year , class:"form-control", placeholder:" Start date of your project" %>
   </div>
-
+</div>
+ <div class="form-group">
   <div class="field">
     <%= f.label :end_year, "End Year of Project " %>
     <%= f.text_field :end_year , class:"form-control", placeholder:" Please type the end year of your project" %>
   </div>
-
+</div>
+ <div class="form-group">
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, :class => 'btn btn-warning' %>
   </div>
+</div>
+<br>
 <% end %>

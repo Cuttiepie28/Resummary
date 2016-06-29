@@ -13,7 +13,7 @@
 
  */
  body{
-  background-image: url("/bg.jpg");
+  background-image: url("/bg3.png");
      background-size: cover;
      -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -21,6 +21,7 @@
 
 
   }
+
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
@@ -40,6 +41,12 @@
 .icons{
   width: 25px;
   height:25px;
+}
+.tablefonts{
+  font-size: 100px;
+}
+#bighead{
+  font-size: 30px;
 }
 
  #custom-bootstrap-menu.navbar-default .navbar-brand, #dropdown-toggle  {
