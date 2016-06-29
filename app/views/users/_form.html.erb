@@ -1,0 +1,84 @@
+<%= form_for(user) do |f| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ <div class="form-group">
+  <div class="field">
+    <%= f.label :username , "User name" %>
+    <%= f.text_field :username , class:"form-control", placeholder:" Please type your Username" %>
+  </div>
+</div>
+ <div class="form-group">
+  <div class="field">
+    <%= f.label :email, "Email" %>
+    <%= f.text_field :email, class:"form-control", placeholder:" Please type your Email" %>
+  </div>
+</div>
+ <div class="form-group">
+  <div class="field">
+     <%= f.label :password %>
+     <%= f.password_field :password  , class:"form-control", placeholder:" Password "%>
+   </div>
+ </div>
+  <div class="form-group">
+   <div class="field">
+     <%= f.label :password_confirmation %>
+     <%= f.password_field :password_confirmation , class:"form-control", placeholder:" Please retype your password " %>
+   </div>
+ </div>
+ <div class="form-group">
+  <div class="field">
+    <%= f.label :fullname , "Fullname"%>
+    <%= f.text_field :fullname , class:"form-control", placeholder:" Email Address "%>
+  </div>
+</div>
+ <div class="form-group">
+  <div class="field">
+    <%= f.label :phone_num, "Phone number"  %>
+    <%= f.text_field :phone_num , class:"form-control", placeholder:" Contactable Number " %>
+  </div>
+</div>
+ <div class="form-group">
+
+  <div class="field">
+    <%= f.label :website , "Website" %>
+    <%= f.text_field :website, class:"form-control", placeholder:" Personal Website " %>
+  </div>
+</div>
+ <div class="form-group">
+  <div class="field">
+    <%= f.label :linkedin , "Website" %>
+    <%= f.text_field :linkedin, class:"form-control", placeholder:" LinkedIn "   %>
+  </div>
+</div>
+ <div class="form-group">
+  <div class="field">
+    <%= f.label :twitter  %>
+    <%= f.text_field :twitter , class:"form-control", placeholder:" Twitter " %>
+  </div>
+</div>
+ <div class="form-group">
+  <div class="field">
+    <%= f.label :github %>
+    <%= f.text_field :github, class:"form-control", placeholder:" Github " %>
+  </div>
+</div>
+ <div class="form-group">
+  <div class="field">
+    <%= f.label :summary %>
+    <%= f.text_area :summary, class:"form-control", placeholder:" Summary " %>
+  </div>
+</div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

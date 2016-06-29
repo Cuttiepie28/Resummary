@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+<div id="well">
+
+<div id="Rhead">
+  <%= @user.fullname %>
+</div>
+<div id="border" style="border-bottom:1px solid black">
+</div>
+
+<p>
+  <img class="icons" src="/mail.png"/><strong> You can email me at:</strong>
+  <%= @user.email %>
+</p>
+
+
+<p>
+  <strong>Phone num:</strong>
+  <%= @user.phone_num %>
+</p>
+
+<p>
+  <%= link_to "Website", @user.website  %> :
+  <%= @user.website %>
+</p>
+
+<p>
+  <%= link_to "LinkedIn", @user.linkedin %> :
+
+  <%= @user.linkedin %>
+</p>
+
+<p>
+  <%= link_to "Twitter", @user.twitter %> :
+  <%= @user.twitter %>
+</p>
+
+<p>
+  <%= link_to "Github", @user.github %> :
+  <%= @user.github %>
+</p>
+
+<p>
+  Summary:<br>
+  <%= @user.summary %>
+</p>
+
+<table class="table table-hover table-responsive">
+  <thead>
+    <tr>
+      <th>Title:</th>
+      <th>Summary:</th>
+      <th>Start year:</th>
+      <th>End year:</th>
+      <th> Collaborated With:   <img class="icons" src="/88.png"/> </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.title %></td>
+        <td><%= project.summary %></td>
+        <td><%= project.start_year %></td>
+        <td><%= project.end_year %></td>
+        <% @collaborations = Collaboration.where(project_id: project.id)%>
+        <td>  <% @collaborations.each do |collaborator| %>
+            <%= collaborator.user.fullname %> <br>
+
+          <% end %>
+
+
+          </td>
+        <td><%= link_to 'Show', project %></td>
+        <td><%= link_to 'Edit', edit_project_path(project) %></td>
+        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit Resume', edit_user_path(@user) ,class:"btn btn-primary btnsize" %>
+<%= link_to 'Back', users_path ,class:"btn btn-warning btnsize" %>
+</div>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @project.title %>
+</p>
+
+<p>
+  <strong>Summary:</strong>
+  <%= @project.summary %>
+</p>
+
+<p>
+  <strong>Start year:</strong>
+  <%= @project.start_year %>
+</p>
+
+<p>
+  <strong>End year:</strong>
+  <%= @project.end_year %>
+</p>
+<%= link_to 'Add Collaboration', new_project_collaboration_path(@project) %>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
