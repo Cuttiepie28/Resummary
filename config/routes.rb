@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'all', to: 'resume#index'
   get 'display/:id' , to: 'resume#display' , as: 'display'
   #
@@ -11,7 +12,10 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :collaborations
+    resources :comments
   end
+
+
   get 'signup', to: 'users#new'
 
   root 'sessions#index'
