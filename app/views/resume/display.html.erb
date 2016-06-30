@@ -1,8 +1,8 @@
-<div class="panel panel-warning">
-  <div class="panel-heading">
-    <h1 class="panel-title ">
+<div class="panel panel-warning" style="background-color: transparent;">
+  <div class="panel-heading" style="background-color: transparent;">
+    <h1 class="panel-title " style="background-color: transparent;">
       <center>
-        <div id="bighead" class="text-uppercase">
+        <div id="bighead" class="text-uppercase" style="color: rgba(61, 39, 31, 0.7); font-size: 40px;">
           <%= @user.fullname %>
         </div>
       </center></h1>
@@ -13,81 +13,97 @@
         <%= @user.email %>
         <p>    <img class="icons" src="/14.png"/><strong> Phone num:</strong>
           <%= @user.phone_num %></p>
-          <div id="well">
-
-            <div id="border" style="border-bottom:1px solid black">
-            </div>
-            <br>
-
-  <div class="center-block">
-            <div class="col-md-6">
-              <img class="icons" src="/comp.png"/>   <%= link_to "Website", @user.website  %> :
-              <%= @user.website %>
-            </div>
-
-            <div class="col-md-6">
-              <img class="icons" src="/linkedin.png"/>  <%= link_to "LinkedIn", @user.linkedin %> :
-
-              <%= @user.linkedin %>
-
-            </div>
-
-            <div class="col-md-6">
-
-              <p>
-                <img class="icons" src="/twitter.png"/>  <%= link_to "Twitter", @user.twitter %> :
-                <%= @user.twitter %>
-              </p>
-            </div>
-            <div class="col-md-6">
-              <p>
-                <img class="icons" src="/ghicon.png"/>  <%= link_to "Github", @user.github %> :
-                <%= @user.github %>
-              </p>
-            </div>
-            <p>
-              Summary:<br>
-              <%= @user.summary %>
-            </p>
-            <br>
-
-        </div>
-          <table class="table table-hover table-responsive">
-            <thead>
-              <tr>
-                <th>Title:</th>
-                <th>Project description:</th>
-                <th>Start year:</th>
-                <th>End year:</th>
-                <th> Collaborated With:   <img class="icons" src="/88.png"/> </th>
-                <th colspan="3"></th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <% @x = Collaboration.where(user_id: @user.id)%>
-
-              <% @x.each do |resume| %>
-              <tr>
-                <td><%= resume.project.title %></td>
-                <td><%= resume.project.summary %></td>
-                <td><%= resume.project.start_year %></td>
-                <td><%= resume.project.end_year %></td>
-
-                <% @collaborations = Collaboration.where(project_id: resume.project.id)%>
-                <td>  <% @collaborations.each do |collaborator| %>
-
-                  <%= link_to collaborator.user.fullname, collaborator.user %><br>
-                  <% end %>
-
-
-                </td>
-              </tr>
-              <% end %>
-            </tbody>
-          </table>
-
-        </div>
-      </div>
         </center>
-    </div>
+        <div id="well">
+          <center>
+            <div id="border" style="border-bottom:1px solid rgba(221, 92, 44, 0.54); width: 500px; text-align:center;">
+            </div> </center>
+            <br>
+
+
+            <div class="row">
+              <div class="col-md-5"  style="text-align:right;">
+
+                <p>  <img class="icons" src="/comp.png"/>   <%= link_to "Website", @user.website  %> :
+                </p>
+                <p>            <img class="icons" src="/linkedin.png"/>  <%= link_to "LinkedIn", @user.linkedin %> :
+                </p>
+                <p><img class="icons" src="/twitter.png"/>  <%= link_to "Twitter", @user.twitter %> :
+                </p>
+                <p>
+                  <img class="icons" src="/ghicon.png"/>  <%= link_to "Github", @user.github %> :
+                </p>
+
+              </div>
+              <div class="col-md-5" style="text-align:left;">
+                <p>  <%= @user.website %> </p>
+                <p><%= @user.linkedin %></p>
+                <p><%= @user.twitter %></p>
+              </p><%= @user.github %></p>
+
+            </div>
+
+          </div>
+
+
+          <center>
+            <div id="border" style="border-bottom:1px solid rgba(221, 92, 44, 0.54); width: 500px; text-align:center;">
+            </div>
+          </center>
+          <div class="row">
+            <div class="col-md-2"> <div id="Rhead" style="text-align:right;" >
+              <br><br><br><br><br>
+              Summary: </div></div>
+              <div class="col-md-10" style="text-align:left;"> <br>
+                <%= @user.summary%></div>
+
+              </div>
+
+
+              <br>
+              <br>
+
+
+              <table class="table table-hover table-responsive">
+                <thead>
+                  <tr>
+                    <th>Title:</th>
+                    <th>Project description:</th>
+                    <th>Start year:</th>
+                    <th>End year:</th>
+                    <th> Collaborated With: </th>
+                    <th>Screenshots:</th>
+
+                    <th colspan="3"></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% @x = Collaboration.where(user_id: @user.id)%>
+
+                  <% @x.each do |resume| %>
+                  <tr>
+                    <td><%= resume.project.title %></td>
+                    <td><%= resume.project.summary %></td>
+                    <td><%= resume.project.start_year %></td>
+                    <td><%= resume.project.end_year %></td>
+                    <% @collaborations = Collaboration.where(project_id: resume.project.id)%>
+                    <td>  <% @collaborations.each do |collaborator| %>
+
+                      <%= link_to collaborator.user.fullname, display_path(collaborator.user) %><br>
+                      <% end %>
+
+
+                    </td>
+                      <td> <div style="width:100px; height:50px;"><img src="<%= resume.project.screenshot %>" style="width:100px; height:50px;"/></div></td>
+
+
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+        </center>
+      </div>

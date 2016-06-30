@@ -1,54 +1,71 @@
-<p id="notice"><%= notice %></p>
+<div class="panel panel-warning" style="background-color: transparent;">
+  <div class="panel-heading" style="background-color: transparent;">
+    <h1 class="panel-title " style="background-color: transparent;">
+      <center>
+        <div id="bighead" class="text-uppercase" style="color: rgba(61, 39, 31, 0.7); font-size: 40px;">
+          <%= @user.fullname %>
+        </div>
+      </center></h1>
+    </div>
+    <div class="panel-body">
+      <center>
+      <p>  <strong> Username:</strong>
+            <%= @user.username %></p>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+    <p><strong> Email Address:</strong>
+        <%= @user.email %></p>
+        <p>  <strong> Contact Number:</strong>
+          <%= @user.phone_num %></p>
+        </center>
+        <div id="well">
+<center>
+          <div id="border" style="border-bottom:1px solid rgba(221, 92, 44, 0.54); width: 500px; text-align:center;">
+          </div> </center>
+          <br>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
 
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
+          <div class="row">
+            <div class="col-md-5"  style="text-align:right;">
 
-<p>
-  <strong>Fullname:</strong>
-  <%= @user.fullname %>
+              <p>  <img class="icons" src="/comp.png"/>   <%= link_to "Website", @user.website  %> :
 </p>
+    <p>            <img class="icons" src="/linkedin.png"/>  <%= link_to "LinkedIn", @user.linkedin %> :
+    </p>
+                <p><img class="icons" src="/twitter.png"/>  <%= link_to "Twitter", @user.twitter %> :
+                </p>
+                <p>
+                  <img class="icons" src="/ghicon.png"/>  <%= link_to "Github", @user.github %> :
+                </p>
 
-<p>
-  <strong>Phone num:</strong>
-  <%= @user.phone_num %>
-</p>
+            </div>
+            <div class="col-md-5" style="text-align:left;">
+            <p>  <%= @user.website %> </p>
+              <p><%= @user.linkedin %></p>
+              <p><%= @user.twitter %></p>
+            </p><%= @user.github %></p>
 
-<p>
-  <strong>Website:</strong>
-  <%= @user.website %>
-</p>
+          </div>
 
-<p>
-  <strong>Linkedin:</strong>
-  <%= @user.linkedin %>
-</p>
+        </div>
 
-<p>
-  <strong>Twitter:</strong>
-  <%= @user.twitter %>
-</p>
 
-<p>
-  <strong>Github:</strong>
-  <%= @user.github %>
-</p>
 
-<p>
-  <strong>Summary:</strong>
-  <%= @user.summary %>
-</p>
+        <center>
+        <div id="border" style="border-bottom:1px solid rgba(221, 92, 44, 0.54); width: 500px; text-align:center;">
+        </div>
+      </center>
+        <div class="row">
+          <div class="col-md-2"> <div id="Rhead" style="text-align:right;" >
+            <br><br><br><br><br>
+            Summary: </div></div>
+            <div class="col-md-10" style="text-align:left;"> <br>
+              <%= @user.summary%></div>
+
+            </div>
+
+</div>
+</div>
+</div>
 <% if current_user !=  nil %>
 
 <%= link_to 'Edit', edit_user_path(@user),class:"btn btn-success" %>
