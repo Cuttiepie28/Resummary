@@ -7,6 +7,8 @@
       <th>   <div id="Rhead">Start year:</div>  </th>
       <th> <div id="Rhead">Start year:</div>  </th>
       <th> <div id="Rhead">Collaborated with:</div>  </th>
+      <th> <div id="Rhead">Screenshot of Project:</div>  </th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,6 +26,9 @@
           <%= link_to collaborator.user.fullname, collaborator.user %><br>
           <% end %>
         </td>
+        <td>
+<%= image_tag @project.screenshot.url(:thumb) %>
+</td>
       </div>
 
 

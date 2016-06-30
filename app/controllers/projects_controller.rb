@@ -1,10 +1,12 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user, except: [:index,:show]
 
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+
+     @projects = Project.all
     @collaborations = Collaboration.all
   end
 
@@ -20,6 +22,8 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
+
+
   end
 
   # POST /projects
@@ -60,7 +64,9 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
+
     @project.destroy
+
     respond_to do |format|
       format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
       format.json { head :no_content }
@@ -75,7 +81,7 @@ class ProjectsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def project_params
-    params.require(:project).permit(:title, :summary, :start_year, :end_year)
+    params.require(:project).permit(:title, :summary, :start_year, :end_year,:screenshot)
   end
 
 

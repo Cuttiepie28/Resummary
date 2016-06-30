@@ -1,40 +1,41 @@
-<h1>Projects</h1>
-
 <table class="table table-hover table-responsive">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Summary</th>
-      <th>Start year</th>
-      <th>End year</th>
-      <th> Collaborater </th>
+      <th>Title:</th>
+      <th>Project description:</th>
+      <th>Start year:</th>
+      <th>End year:</th>
+      <th> Collaborated With:   <img class="icons" src="/88.png"/> </th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.title %></td>
-        <td><%= project.summary %></td>
-        <td><%= project.start_year %></td>
-        <td><%= project.end_year %></td>
-        <% @collaborations = Collaboration.where(project_id: project.id)%>
-        <td>  <% @collaborations.each do |collaborator| %>
-            <%= collaborator.user.fullname %> <br>
+    <% @x = Collaboration.where(user_id: current_user.id)%>
 
-          <% end %>
+    <% @x.each do |resume| %>
+    <tr>
+      <td><%= resume.project.title %></td>
+      <td><%= resume.project.summary %></td>
+      <td><%= resume.project.start_year %></td>
+      <td><%= resume.project.end_year %></td>
+
+      <% @collaborations = Collaboration.where(project_id: resume.project.id)%>
+      <td>  <% @collaborations.each do |collaborator| %>
+
+        <%= link_to collaborator.user.fullname, collaborator.user %><br>
+        <% end %>
 
 
-          </td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      </td>
+      <td><%= link_to 'Show', resume.project %></td>
+
+
+              <td><%= link_to 'Edit', edit_project_path(resume.project.id) %></td>
+
+              <td><%= link_to 'Destroy', resume.project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+    </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Project', new_project_path %>

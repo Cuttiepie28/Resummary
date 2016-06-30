@@ -1,43 +1,72 @@
 <%= form_for(project) do |f| %>
   <% if project.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+  <div id="error_explanation">
+    <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
 
-      <ul>
+    <ul>
       <% project.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <% end %>
- <div class="form-group">
-  <div class="field">
-    <%= f.label :title , "Project title"  %>
-    <%= f.text_field :title , class:"form-control", placeholder:" What was the title of the project you're working on?"%>
+
+  <div class="form-group">
+    <div class="field">
+
+      <div class="row">
+        <div class="col-md-3">  <%= f.label :title , "Project title:" ,class:"pull-right" %></div>
+        <div class="col-md-8">  <%= f.text_field :title , class:"form-control", placeholder:" What was the title of the project you're working on?"%> </div>
+      </div>
+    </div>
   </div>
-</div>
- <div class="form-group">
-  <div class="field">
-    <%= f.label :summary, "Summary on Project:" %>
-    <%= f.text_area :summary , class:"form-control", placeholder:" Please type a brief summary of less than 140 words "%>
+  <div class="form-group">
+    <div class="field">
+      <div class="row">
+        <div class="col-md-3"> <%= f.label :summary, "Summary on Project:",class:"pull-right" %> </div>
+        <div class="col-md-8"> <%= f.text_area :summary , class:"form-control", placeholder:" Please type a brief summary of less than 140 words ", rows:"10"%>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
- <div class="form-group">
-  <div class="field">
-    <%= f.label :start_year ,"Start Year of Project" %>
-    <%= f.text_field :start_year , class:"form-control", placeholder:" Start date of your project" %>
+  <div class="form-group">
+    <div class="field">
+      <div class="row">
+        <div class="col-md-3">
+          <%= f.label :start_year ,"Project Start Year : " ,class:"pull-right"%> </div>
+          <div class="col-md-8">    <%= f.date_select :start_year, {order: [:day, :month, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year'}, start_year: Date.today.year, end_year: Date.today.year - 100} %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="field">
+        <div class="row">
+          <div class="col-md-3">
+            <%= f.label :end_year, "Project End Year : ",class:"pull-right" %>
+          </div>
+          <div class="col-md-8">
+            <%= f.date_select :end_year, {order: [:day, :month, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year'}, start_year: Date.today.year + 10, end_year: Date.today.year - 25} %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <div class="row">
+      <div class="col-md-3">
+        <%= f.label :screenshot, "Screeshot: ",class:"pull-right" %>
+      </div>
+      <div class="col-md-8">
+      <%= f.file_field :screenshot , :class => 'btn btn-info'%>
+    </div>
+    </div>
   </div>
-</div>
- <div class="form-group">
-  <div class="field">
-    <%= f.label :end_year, "End Year of Project " %>
-    <%= f.text_field :end_year , class:"form-control", placeholder:" Please type the end year of your project" %>
-  </div>
-</div>
- <div class="form-group">
-  <div class="actions">
-    <%= f.submit nil, :class => 'btn btn-warning' %>
-  </div>
-</div>
-<br>
-<% end %>
+    <br>
+    <br>
+    <div class="form-group">
+      <div class="actions">
+        <%= f.submit nil, :class => 'btn btn-success' %>
+      </div>
+    </div>
+    <br>
+    <% end %>

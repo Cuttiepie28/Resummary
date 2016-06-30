@@ -6,6 +6,16 @@
   <link href='https://fonts.googleapis.com/css?family=Lato|Leckerli+One|Pacifico|ABeeZee' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<link rel="icon" type="image/png" href="favicon.png" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+     $("#myCarousel").carousel({
+         interval : false
+     });
+});
+</script>
   <style>
   body{
     font-family: 'ABeeZee', sans-serif;
@@ -24,6 +34,16 @@
   h1{
     font-size: 25px;
   }
+  .carousel{
+    background: none;
+    margin-top: 20px;
+}
+.carousel .item img{
+    margin: 0 auto; /* Align slide image horizontally center */
+}
+.bs-example{
+	margin: 20px;
+}
   </style>
 </head>
 
@@ -54,6 +74,7 @@
             <%= link_to 'All Resumary', all_path %>
           </li>
           <% if user_logged_in? %>
+
           <li class="page-scroll">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
               Project <span class="caret"></span>
@@ -124,5 +145,14 @@
             <%= yield %>
           </div>
         </div>
+        <footer class="navbar-default navbar-fixed-bottom" style="background-color: transparent">
+          <div class="container-fluid" style="background-color: none">
+            <center>
+          <span class=" glyphicon glyphicon-copyright-mark" aria-hidden="true"></span>
+          Ariel
+</cetner>
+          </div>
+
+        </footer>
       </body>
       </html>
