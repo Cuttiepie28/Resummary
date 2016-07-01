@@ -1,4 +1,4 @@
-# README# Project2B - REsummary
+# README# Project2B - Resummary
 
 **Goal of the Project**
 With long and draggy summary, it's no wonder employers or HR department skips and skim through resume.
@@ -23,7 +23,7 @@ Resummary creates your resume in a summary. Showing projects that you have colla
 
 
 **Screenshot:**
-![Resummary-Resume Page](https://github.com/arieltsq/Resummary/public/screenshot.png "Screenshot")
+![Resummary-Resume Page](https://github.com/arieltsq/Resummary/blob/master/public/screenshot.png "Screenshot")
 
 **Ruby version** : Rails 5.0.0.rc2
 
