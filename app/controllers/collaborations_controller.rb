@@ -33,9 +33,9 @@ class CollaborationsController < ApplicationController
     respond_to do |format|
       if @collaboration.save
         #  format.html { redirect_to project_collaboration_path(@project,@collaboration), notice: 'Collaboration was successfully created.' }
-        format.html { redirect_to project_collaborations_path(@project), notice: 'Collaboration was successfully created.' }
+        format.html { redirect_to @project, notice: 'Collaboration was successfully created.' }
 
-        format.json { render :show, status: :created, location: @collaboration }
+        format.json { render :show, status: :created, location: @project}
       else
         format.html { render :new }
         format.json { render json: @collaboration.errors, status: :unprocessable_entity }
