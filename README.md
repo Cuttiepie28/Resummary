@@ -1,24 +1,32 @@
-# README
+# README# Project2B - REsummary
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Goal of the Project**
+With long and draggy summary, it's no wonder employers or HR department skips and skim through resume.
 
-Things you may want to cover:
+Resummary creates your resume in a summary. Showing projects that you have collaborate with others
 
-* Ruby version
 
-* System dependencies
+**Technology Use:**
++ Ruby
++ Rails framework
++ SASS || Bootstrap
 
-* Configuration
+**Gems Used:**
++ Rails erd that allows me to view the models and association for my database
++ Paperclip for photo upload
++ Bcrypt for authentication
 
-* Database creation
+**Additional notes**
 
-* Database initialization
+1. You can download the source code to use. Do drop me a comment if you have any issues with the Resummary
+2. Do note that users are only allowed to edit their own user account/profile
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+**Screenshot:**
+![Resummary-Resume Page](https://github.com/arieltsq/Resummary/public/screenshot.png "Screenshot")
 
-* Deployment instructions
+**Ruby version** : Rails 5.0.0.rc2
 
-* ...
+
+**Deployment on Heroku**
+[Resummary Link](http://resummary.herokuapp.com/resume)

@@ -52,7 +52,7 @@
       </center>
         <div class="row">
           <div class="col-md-2"> <div id="Rhead" style="text-align:right;" >
-            <br><br><br><br><br>
+            <br>
             Summary: </div></div>
             <div class="col-md-10" style="text-align:left;"> <br>
               <%= @user.summary%></div>
@@ -101,7 +101,7 @@
               </tbody>
             </table>
 
-            <%= link_to 'Edit Resume', edit_user_path(@user) ,class:"btn btn-primary btnsize" %>
-            <%= link_to 'Back', users_path ,class:"btn btn-warning btnsize" %>
+            <%= link_to 'Edit Resume', edit_user_path(@user) ,class:"btn btn-success" %>
+            <%= link_to 'Back', users_path ,class:"btn btn-info pull-right" %>
           </div>
         </div>
