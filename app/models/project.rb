@@ -1,7 +1,6 @@
 class Project < ApplicationRecord
   has_many :collaboration, dependent: :destroy
   has_many :users , through: :collaboration
-  validates_length_of :summary, maximum: 150
   validates :start_year, presence: true
   validates :end_year, presence: true
   has_attached_file :screenshot ,default_url: "/images/:style/missing.png"
